@@ -4,18 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Spending Pulse · Daily Money Check</title>
-  <meta name="description" content="Spending Pulse helps you know what's safe to spend today with a reliable 30-day outlook.">
+  <meta name="description" content="Spending Pulse helps you quickly see what is safe to spend today and what is coming next.">
   <style>
 :root{
   --bg-start:#dce7f5;
   --bg-end:#d3ecea;
-  --card:#edf4fbcc;
-  --border:#c4d1df;
-  --text:#0d1421;
-  --muted:#627286;
+  --card:#eff5fc;
+  --border:#c5d2e0;
+  --text:#0f1826;
+  --muted:#4e6279;
   --blue:#0d84ff;
-  --green:#20b25c;
-  --danger:#f04438;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -26,70 +24,38 @@ body{
   min-height:100vh;
 }
 a{color:inherit;text-decoration:none}
-.page{max-width:1120px;margin:0 auto;padding:24px 20px 70px}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}
-.brand{font-weight:800;letter-spacing:-.03em;font-size:24px}
-.nav{display:flex;gap:16px;flex-wrap:wrap}
-.nav a{color:var(--muted);font-weight:600}
-.button{
-  display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;
-  background:var(--blue);color:#fff;font-weight:700;box-shadow:0 8px 20px #0d84ff3d
-}
-.outline{background:transparent;border:1px solid #b4c6d8;color:#203247;box-shadow:none}
-.hero{
-  border:1px solid var(--border);border-radius:44px;padding:52px 42px;background:linear-gradient(180deg,#f3f8ff88,#e0f4ef66);
-  box-shadow:0 16px 45px #10213b1c;
-}
-h1{font-size:72px;line-height:1.02;letter-spacing:-.04em;margin:0 0 14px}
-.lead{font-size:22px;max-width:760px;line-height:1.5;color:#42566e;margin:0}
+.page{max-width:1040px;margin:0 auto;padding:24px 20px 60px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-size:24px;font-weight:800;letter-spacing:-.03em}
+.nav{display:flex;gap:14px;flex-wrap:wrap}
+.nav a{font-weight:600;color:var(--muted)}
+.hero{margin-top:14px;border:1px solid var(--border);border-radius:34px;padding:42px 30px;background:#f4f9ffb0;box-shadow:0 14px 36px #1527411a}
+h1{margin:0;font-size:58px;line-height:1.02;letter-spacing:-.03em}
+.lead{margin:14px 0 0;max-width:700px;font-size:20px;line-height:1.45;color:#3f546b}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
-.metric{background:#f6fbff9e;border:1px solid #d1deea;padding:16px 14px;border-radius:20px}
-.metric .label{font-size:14px;color:var(--muted)}
-.metric .value{margin-top:6px;font-size:30px;font-weight:800;letter-spacing:-.02em}
-.safe{color:var(--green)}
-.warning{color:#f79009}
-.over{color:var(--danger)}
-.section{margin-top:30px}
-.section-title{font-size:40px;letter-spacing:-.03em;margin:0 0 10px}
-.section-sub{margin:0;color:var(--muted);font-size:18px}
-.features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
-.card{
-  background:var(--card);border:1px solid #c7d5e3;border-radius:28px;padding:24px;
-  box-shadow:0 10px 30px #1c2b4212;
-}
-.card h3{margin:0 0 8px;font-size:28px;letter-spacing:-.02em}
-.card p{margin:0;color:#455a71;line-height:1.6}
-.bullets{margin:12px 0 0;padding-left:18px;color:#2e4257;line-height:1.65}
-.bullets li+li{margin-top:4px}
-.highlight{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:18px}
-.mock{
-  border:1px solid #c7d4e2;border-radius:30px;background:linear-gradient(180deg,#e6edf9,#d6ebee);padding:20px;
-}
-.phone{
-  width:min(100%,360px);margin:0 auto;border-radius:34px;background:#edf4fb;border:1px solid #d0dcea;padding:16px;
-  box-shadow:0 18px 40px #11223921;
-}
-.status{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:14px;background:#f3f8ff;border:1px solid #d6e2ef}
-.status strong{font-size:17px}
-.pill{font-size:13px;font-weight:700;border-radius:999px;padding:6px 10px;background:#dff7e8;color:var(--green)}
-.chart{margin-top:12px;height:140px;border-radius:16px;background:linear-gradient(180deg,#cfe5ff,#d9edf8);border:1px solid #c4d5e8;position:relative;overflow:hidden}
-.chart:before{content:"";position:absolute;left:0;right:0;bottom:22px;border-bottom:2px dashed #f66}
-.chart:after{content:"";position:absolute;left:10%;right:10%;top:35%;height:3px;background:#0d84ff;box-shadow:40px 0 0 #0d84ff,80px -30px 0 #0d84ff,120px -30px 0 #0d84ff,170px -10px 0 #0d84ff}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;font-weight:700}
+.button.primary{background:var(--blue);color:#fff;box-shadow:0 8px 18px #0d84ff40}
+.button.secondary{border:1px solid #b7c9dc;color:#2a4058;background:#f6fbff}
+.section{margin-top:26px}
+.section h2{margin:0 0 10px;font-size:34px;letter-spacing:-.02em}
+.section p{margin:0;color:var(--muted);font-size:18px}
+.features{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:20px}
+.card h3{margin:0 0 8px;font-size:24px}
+.card p{margin:0;color:#42586f;line-height:1.55;font-size:16px}
+.steps{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.step{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:18px}
+.step-number{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;background:#e0edff;color:#0f4f9f;font-weight:800;margin-bottom:10px}
+.gallery{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.gallery img{width:100%;height:100%;min-height:260px;object-fit:cover;border-radius:20px;border:1px solid #c3d1df;background:#e7f0fb}
+.caption{margin-top:8px;color:#5b7187;font-size:14px}
 .legal{margin-top:28px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted)}
-.legal a{color:#36577b;font-weight:700}
-@media (max-width: 980px){
-  h1{font-size:56px}
-  .features,.highlight{grid-template-columns:1fr}
-  .phone{max-width:420px}
+.legal a{color:#355b84;font-weight:700}
+@media (max-width:900px){
+  h1{font-size:46px}
+  .features,.steps,.gallery{grid-template-columns:1fr}
 }
-@media (max-width: 700px){
-  .hero{padding:34px 22px;border-radius:30px}
-  h1{font-size:42px}
-  .lead{font-size:18px}
-  .metrics{grid-template-columns:1fr}
-}
-</style>
+  </style>
 </head>
 <body>
   <main class="page">
@@ -103,98 +69,65 @@ h1{font-size:72px;line-height:1.02;letter-spacing:-.04em;margin:0 0 14px}
       </nav>
     </header>
 
-    <section class="hero" id="top">
-      <h1>Know What's Safe Today.</h1>
-      <p class="lead">Spending Pulse is a daily money-check app, not a budgeting maze. Track real spend, stay ahead of recurring bills, and get a clear 30-day outlook based on reliable Decimal money logic.</p>
+    <section class="hero">
+      <h1>A quick daily check for your money.</h1>
+      <p class="lead">See what you can safely spend today, track bills, and stay ahead of the next 30 days in seconds.</p>
       <div class="hero-actions">
-        <a class="button" href="mailto:support.spending.pulse@gmail.com">Get early access</a>
-        <a class="button outline" href="#features">See features</a>
-      </div>
-      <div class="metrics" aria-label="App highlights">
-        <article class="metric">
-          <div class="label">Forecast horizon</div>
-          <div class="value">30 days</div>
-        </article>
-        <article class="metric">
-          <div class="label">Daily status</div>
-          <div class="value safe">Safe · At limit · Overspent</div>
-        </article>
-        <article class="metric">
-          <div class="label">Foundation</div>
-          <div class="value">Local-first + sync status</div>
-        </article>
+        <a class="button primary" href="mailto:support.spending.pulse@gmail.com">Get early access</a>
+        <a class="button secondary" href="#how">See how it works</a>
       </div>
     </section>
 
     <section class="section" id="features">
-      <h2 class="section-title">Built for your real cashflow</h2>
-      <p class="section-sub">From today's safe-to-spend to recurring bills and transaction search, each screen helps you decide quickly.</p>
+      <h2>Key features</h2>
+      <p>Simple tools to help you make better money decisions every day.</p>
       <div class="features">
         <article class="card">
-          <h3>Pulse</h3>
-          <p>See current balance, remaining today, and a 30-day balance outlook against your safety floor in one glance.</p>
-          <ul class="bullets">
-            <li>Safe / Close to limit / At the limit / Overspent badges</li>
-            <li>Upcoming recurring view for today, tomorrow, 7, 14, or 30 days</li>
-            <li>Future projection preserves realized history</li>
-          </ul>
+          <h3>Daily safe-to-spend</h3>
+          <p>Open the app and instantly know if you are safe, close to your limit, or over it.</p>
         </article>
         <article class="card">
-          <h3>Bills</h3>
-          <p>Manage recurring expense and income items with manual or automatic settlement plus reminder controls.</p>
-          <ul class="bullets">
-            <li>Create, edit, deactivate, postpone, and settle recurring items</li>
-            <li>Supports one-time planned bill scheduling</li>
-            <li>Reminder presets, quiet hours, overdue cadence, and caps</li>
-          </ul>
+          <h3>Upcoming bills</h3>
+          <p>See what is due next so surprises do not catch you off guard.</p>
         </article>
         <article class="card">
-          <h3>Transactions</h3>
-          <p>Record fast from Pulse or use a full transaction form with date, category, and searchable history.</p>
-          <ul class="bullets">
-            <li>Search, filters, and sort controls</li>
-            <li>Edit/delete flows with confirmation safeguards</li>
-            <li>Adjustment transactions included in history</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Flexible setup</h3>
-          <p>Use one or more balances, set a safety floor, and keep categories clean for both expenses and income.</p>
-          <ul class="bullets">
-            <li>Quick onboarding with sensible defaults</li>
-            <li>Separate expense/income category management</li>
-            <li>Freemium + Plus subscription with non-destructive downgrade</li>
-          </ul>
+          <h3>Fast transaction log</h3>
+          <p>Add spending quickly and keep your balance accurate without extra steps.</p>
         </article>
       </div>
     </section>
 
     <section class="section" id="how">
-      <h2 class="section-title">See the next 30 days with confidence</h2>
-      <div class="highlight">
-        <article class="mock">
-          <div class="phone" role="img" aria-label="Spending Pulse app visual style preview">
-            <div class="status">
-              <strong>Remaining today</strong>
-              <span class="pill">Safe</span>
-            </div>
-            <div class="chart"></div>
-            <p style="margin:10px 2px 0;color:#5b7085">Projected remaining balance vs safety floor</p>
-          </div>
+      <h2>How it works</h2>
+      <p>Built to be fast to read and easy to act on.</p>
+      <div class="steps">
+        <article class="step">
+          <div class="step-number">1</div>
+          <h3>Set your balance</h3>
+          <p>Add your current amount and safety floor.</p>
         </article>
-        <article class="card">
-          <h3>Reliable by design</h3>
-          <ul class="bullets" style="margin-top:0">
-            <li>Decimal-based money logic across calculations and persistence</li>
-            <li>SwiftData local-first storage for balances, bills, categories, and transactions</li>
-            <li>Sync indicator keeps online/offline state transparent</li>
-            <li>One-tap quick record flow from Pulse</li>
-          </ul>
-          <div class="hero-actions" style="margin-top:18px">
-            <a class="button" href="mailto:support.spending.pulse@gmail.com">Contact support</a>
-          </div>
+        <article class="step">
+          <div class="step-number">2</div>
+          <h3>Track daily spending</h3>
+          <p>Log what you spend and see your updated safe amount.</p>
+        </article>
+        <article class="step">
+          <div class="step-number">3</div>
+          <h3>Stay ahead</h3>
+          <p>Use the 30-day view to plan before bills hit.</p>
         </article>
       </div>
+    </section>
+
+    <section class="section" id="screenshots">
+      <h2>App screenshots</h2>
+      <p>Your provided app images are shown below.</p>
+      <div class="gallery">
+        <img src="assets/screenshot-1.png" alt="Spending Pulse app screenshot 1">
+        <img src="assets/screenshot-2.png" alt="Spending Pulse app screenshot 2">
+        <img src="assets/screenshot-3.png" alt="Spending Pulse app screenshot 3">
+      </div>
+      <p class="caption">Place your provided screenshots at <strong>assets/screenshot-1.png</strong>, <strong>assets/screenshot-2.png</strong>, and <strong>assets/screenshot-3.png</strong>.</p>
     </section>
 
     <footer class="legal">
