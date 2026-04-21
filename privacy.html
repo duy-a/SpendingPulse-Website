@@ -1,153 +1,140 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy · Spending Pulse</title>
-  <meta name="description" content="Privacy Policy for Spending Pulse.">
-  <style>
-:root{
-  --bg1:#eef3ff;
-  --bg2:#e8fbf5;
-  --card:#ffffff;
-  --text:#101828;
-  --muted:#667085;
-  --accent:#1177ff;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(900px 500px at 50% 0%, rgba(17,119,255,.12), transparent 60%),
-    linear-gradient(135deg, var(--bg1), var(--bg2));
-  min-height:100vh;
-}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:900px;margin:0 auto;padding:32px 20px 72px}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
-.brand{font-weight:800;letter-spacing:-0.03em;font-size:20px;color:var(--text)}
-.nav{display:flex;gap:16px;flex-wrap:wrap}
-.nav a{color:var(--muted);font-weight:600}
-.card{
-  background:rgba(255,255,255,.84);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.6);
-  box-shadow:0 18px 50px rgba(16,24,40,.08);
-  border-radius:28px;
-  padding:28px;
-}
-.hero{padding:40px 32px}
-h1{font-size:44px;line-height:1.05;letter-spacing:-0.04em;margin:0 0 12px}
-.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:720px}
-.meta{margin-top:16px;color:var(--muted);font-size:14px}
-.section{margin-top:18px}
-.section h2{margin:0 0 10px;font-size:24px;letter-spacing:-0.02em}
-.section p,.section li{color:#344054;line-height:1.7;font-size:16px}
-.section ul{margin:8px 0 0 22px;padding:0}
-.footer{margin-top:22px;color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px}
-.linkcard{
-  display:block;background:rgba(255,255,255,.84);border:1px solid rgba(255,255,255,.7);
-  border-radius:24px;padding:22px;box-shadow:0 12px 36px rgba(16,24,40,.06)
-}
-.linkcard h2{margin:0 0 8px;font-size:24px;letter-spacing:-0.02em;color:var(--text)}
-.linkcard p{margin:0;color:var(--muted);line-height:1.6}
-.note{margin-top:22px;padding:16px 18px;border-radius:18px;background:rgba(17,119,255,.06);color:#26435e;border:1px solid rgba(17,119,255,.12)}
-code{background:rgba(16,24,40,.06);padding:2px 6px;border-radius:8px}
-@media (max-width: 640px){
-  .topbar{align-items:flex-start;flex-direction:column}
-  h1{font-size:34px}
-  .hero{padding:28px 22px}
-  .card{padding:22px}
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy · Spending Pulse</title>
+<meta name="description" content="Privacy Policy for Spending Pulse — how your data is handled, stored, and protected.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="legal.css">
+<script>
+// highlight active TOC link on scroll
+window.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.legal-section');
+  const links = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+});
+</script>
 </head>
-<body>
-  <div class="wrap">
-    <div class="topbar">
-      <a class="brand" href="index.html">Spending Pulse</a>
-      <nav class="nav" aria-label="Legal navigation">
-        <a href="index.html">Home</a>
-        <a href="terms.html">Terms</a>
-        <a href="privacy.html">Privacy</a>
-      </nav>
-    </div>
-    
-<section class="card hero">
-  <h1>Privacy Policy</h1>
-  <p class="lead">This Privacy Policy describes how Spending Pulse handles information when you use the app and related website.</p>
-  <div class="meta">Last updated: March 13, 2026</div>
-</section>
+<body class="canvas-bg">
 
-<section class="card section">
-  <h2>1. Overview</h2>
-  <p>Spending Pulse is designed to give you budgeting and cash-flow clarity with minimal data collection. The core experience is intended to work without requiring a bank login or a user account.</p>
-</section>
-
-<section class="card section">
-  <h2>2. Information processed by the app</h2>
-  <p>Depending on how you use Spending Pulse, the app may process information that you manually enter, such as recurring bills, planned income, transactions, categories, notes, reminder settings, and app preferences.</p>
-  <p>This information is primarily stored on your device. If you enable operating-system or platform sync or backup features, copies of your data may also be stored through those platform services under the terms and privacy practices of the provider operating them.</p>
-</section>
-
-<section class="card section">
-  <h2>3. Personal information</h2>
-  <p>Spending Pulse does not require you to provide directly identifying personal information to use the core app experience. The app is not designed to collect precise location data unless a feature clearly asks for it and you explicitly grant permission.</p>
-</section>
-
-<section class="card section">
-  <h2>4. How information is used</h2>
-  <p>Information processed by Spending Pulse is used to operate app features, such as showing balances, creating forecasts, managing recurring items, scheduling reminders, saving preferences, and restoring data through any platform-level backup or sync features you choose to use.</p>
-</section>
-
-<section class="card section">
-  <h2>5. Sharing and disclosure</h2>
-  <p>We do not sell your personal information. We do not share your app data for third-party advertising. Information may be disclosed only when necessary to operate the app through service providers, to comply with law, to protect rights or safety, or as otherwise described in this policy.</p>
-</section>
-
-<section class="card section">
-  <h2>6. Accessing, changing, or deleting your data</h2>
-  <p>You can generally access, edit, or delete the information you enter into Spending Pulse directly inside the app. If you delete the app, local data stored only on the device may also be removed. If you use platform backup or sync features, you may need to manage those copies through the relevant platform provider as well.</p>
-</section>
-
-<section class="card section">
-  <h2>7. Security</h2>
-  <p>We use reasonable measures intended to protect information handled by Spending Pulse. No method of transmission, synchronization, or electronic storage is completely secure, so absolute security cannot be guaranteed.</p>
-</section>
-
-<section class="card section">
-  <h2>8. Third-party services and links</h2>
-  <p>Spending Pulse may rely on third-party services such as Apple or other infrastructure providers, and the website or app may contain links to third-party sites. Those services operate under their own terms and privacy policies, which you should review separately.</p>
-</section>
-
-<section class="card section">
-  <h2>9. International data transfers</h2>
-  <p>Depending on the services you use and where those providers operate, information may be processed or stored outside your country or region. Data protection laws vary by jurisdiction.</p>
-</section>
-
-<section class="card section">
-  <h2>10. Children&apos;s privacy</h2>
-  <p>Spending Pulse is not intended for children under 13, and we do not knowingly collect personal information from children under 13 through the core app experience.</p>
-</section>
-
-<section class="card section">
-  <h2>11. Your consent</h2>
-  <p>By using Spending Pulse and the related website, you consent to this Privacy Policy.</p>
-</section>
-
-<section class="card section">
-  <h2>12. Changes to this policy</h2>
-  <p>We may update this Privacy Policy from time to time. When we do, we will post the revised version on this page and update the “Last updated” date above.</p>
-</section>
-
-<section class="card section">
-  <h2>13. Contact</h2>
-  <p>Questions about this Privacy Policy can be sent to <a href="mailto:support.spending.pulse@gmail.com">support.spending.pulse@gmail.com</a>.</p>
-</section>
-
+<nav>
+  <a class="nav-brand" href="index.html">
+    <img src="../assets/logo-icon.png" width="28" height="28" style="border-radius:6px" alt="Spending Pulse">
+    Spending Pulse
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#1177FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Home
+    </a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html" class="active">Privacy</a>
   </div>
+</nav>
+
+<div class="page" style="grid-template-columns:1fr">
+
+  <!-- hero -->
+  <div class="legal-hero">
+    <h1>Privacy Policy</h1>
+    <p class="lead">This Privacy Policy describes how Spending Pulse handles information when you use the app and related website.</p>
+    <div class="meta">Last updated: March 13, 2026 · <a href="mailto:support.spending.pulse@gmail.com">support.spending.pulse@gmail.com</a></div>
+  </div>
+
+  <!-- content -->
+  <div class="legal-content">
+
+    <div class="legal-section" id="s1">
+      <h2><span class="section-num">1</span> Overview</h2>
+      <p>Spending Pulse is designed to give you budgeting and cash-flow clarity with minimal data collection. The core experience is intended to work without requiring a bank login or a user account.</p>
+    </div>
+
+    <div class="legal-section" id="s2">
+      <h2><span class="section-num">2</span> Information processed by the app</h2>
+      <p>Depending on how you use Spending Pulse, the app may process information that you manually enter, such as recurring bills, planned income, transactions, categories, notes, reminder settings, and app preferences.</p>
+      <p>This information is primarily stored on your device. If you enable operating-system or platform sync or backup features, copies of your data may also be stored through those platform services under the terms and privacy practices of the provider operating them.</p>
+    </div>
+
+    <div class="legal-section" id="s3">
+      <h2><span class="section-num">3</span> Personal information</h2>
+      <p>Spending Pulse does not require you to provide directly identifying personal information to use the core app experience. The app is not designed to collect precise location data unless a feature clearly asks for it and you explicitly grant permission.</p>
+    </div>
+
+    <div class="legal-section" id="s4">
+      <h2><span class="section-num">4</span> How information is used</h2>
+      <p>Information processed by Spending Pulse is used to operate app features, such as showing balances, creating forecasts, managing recurring items, scheduling reminders, saving preferences, and restoring data through any platform-level backup or sync features you choose to use.</p>
+    </div>
+
+    <div class="legal-section" id="s5">
+      <h2><span class="section-num">5</span> Sharing and disclosure</h2>
+      <p>We do not sell your personal information. We do not share your app data for third-party advertising. Information may be disclosed only when necessary to operate the app through service providers, to comply with law, to protect rights or safety, or as otherwise described in this policy.</p>
+    </div>
+
+    <div class="legal-section" id="s6">
+      <h2><span class="section-num">6</span> Accessing, changing, or deleting your data</h2>
+      <p>You can generally access, edit, or delete the information you enter into Spending Pulse directly inside the app. If you delete the app, local data stored only on the device may also be removed. If you use platform backup or sync features, you may need to manage those copies through the relevant platform provider as well.</p>
+    </div>
+
+    <div class="legal-section" id="s7">
+      <h2><span class="section-num">7</span> Security</h2>
+      <p>We use reasonable measures intended to protect information handled by Spending Pulse. No method of transmission, synchronization, or electronic storage is completely secure, so absolute security cannot be guaranteed.</p>
+    </div>
+
+    <div class="legal-section" id="s8">
+      <h2><span class="section-num">8</span> Third-party services and links</h2>
+      <p>Spending Pulse may rely on third-party services such as Apple or other infrastructure providers, and the website or app may contain links to third-party sites. Those services operate under their own terms and privacy policies, which you should review separately.</p>
+    </div>
+
+    <div class="legal-section" id="s9">
+      <h2><span class="section-num">9</span> International data transfers</h2>
+      <p>Depending on the services you use and where those providers operate, information may be processed or stored outside your country or region. Data protection laws vary by jurisdiction.</p>
+    </div>
+
+    <div class="legal-section" id="s10">
+      <h2><span class="section-num">10</span> Children's privacy</h2>
+      <p>Spending Pulse is not intended for children under 13, and we do not knowingly collect personal information from children under 13 through the core app experience.</p>
+    </div>
+
+    <div class="legal-section" id="s11">
+      <h2><span class="section-num">11</span> Your consent</h2>
+      <p>By using Spending Pulse and the related website, you consent to this Privacy Policy.</p>
+    </div>
+
+    <div class="legal-section" id="s12">
+      <h2><span class="section-num">12</span> Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we do, we will post the revised version on this page and update the "Last updated" date above.</p>
+    </div>
+
+    <div class="legal-section" id="s13">
+      <h2><span class="section-num">13</span> Contact</h2>
+      <p>Questions about this Privacy Policy can be sent to <a href="mailto:support.spending.pulse@gmail.com">support.spending.pulse@gmail.com</a>.</p>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /page -->
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Spending Pulse</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:support.spending.pulse@gmail.com">Contact</a>
+    </div>
+    <span class="footer-legal">© 2026 Spending Pulse</span>
+  </div>
+</footer>
+
 </body>
 </html>
