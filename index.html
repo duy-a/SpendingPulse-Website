@@ -1,100 +1,523 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home · Spending Pulse</title>
-  <meta name="description" content="Home for Spending Pulse.">
-  <style>
-:root{
-  --bg1:#eef3ff;
-  --bg2:#e8fbf5;
-  --card:#ffffff;
-  --text:#101828;
-  --muted:#667085;
-  --accent:#1177ff;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spending Pulse · Feel good spending money again</title>
+<meta name="description" content="Spending Pulse answers one question every day: can I spend today without putting tomorrow at risk? Download for iPhone, Apple Watch, and widgets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/device-screenshot.png">
+<style>
+/* ── Reset ───────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color:var(--text);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  color:#101828;
+  background:#ffffff;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── Design tokens ───────────────────────── */
+:root{
+  --accent:#1177FF;
+  --accent-soft:rgba(17,119,255,.10);
+  --cyan:#4BC8F5;
+  --ink1:#101828;
+  --ink2:#344054;
+  --ink3:#667085;
+  --ink4:#98A2B3;
+  --card:rgba(255,255,255,.84);
+  --card-thin:rgba(255,255,255,.64);
+  --safe:#34C759;
+  --close:#FF9500;
+  --red:#FF3B30;
+}
+
+/* ── Canvas background ───────────────────── */
+.canvas-bg{
   background:
-    radial-gradient(900px 500px at 50% 0%, rgba(17,119,255,.12), transparent 60%),
-    linear-gradient(135deg, var(--bg1), var(--bg2));
-  min-height:100vh;
+    radial-gradient(780px 480px at 18% 0%, rgba(17,119,255,.09), transparent 60%),
+    radial-gradient(600px 400px at 88% 0%, rgba(0,199,190,.10), transparent 60%),
+    linear-gradient(158deg, #EEF3FF 0%, #E8FBF5 100%);
 }
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:900px;margin:0 auto;padding:32px 20px 72px}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
-.brand{font-weight:800;letter-spacing:-0.03em;font-size:20px;color:var(--text)}
-.nav{display:flex;gap:16px;flex-wrap:wrap}
-.nav a{color:var(--muted);font-weight:600}
-.card{
-  background:rgba(255,255,255,.84);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.6);
-  box-shadow:0 18px 50px rgba(16,24,40,.08);
-  border-radius:28px;
-  padding:28px;
+
+/* ── Nav ─────────────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:64px;
+  background:rgba(255,255,255,.80);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  border-bottom:0.5px solid rgba(16,24,40,.07);
 }
-.hero{padding:40px 32px}
-h1{font-size:44px;line-height:1.05;letter-spacing:-0.04em;margin:0 0 12px}
-.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:720px}
-.meta{margin-top:16px;color:var(--muted);font-size:14px}
-.section{margin-top:18px}
-.section h2{margin:0 0 10px;font-size:24px;letter-spacing:-0.02em}
-.section p,.section li{color:#344054;line-height:1.7;font-size:16px}
-.section ul{margin:8px 0 0 22px;padding:0}
-.footer{margin-top:22px;color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px}
-.linkcard{
-  display:block;background:rgba(255,255,255,.84);border:1px solid rgba(255,255,255,.7);
-  border-radius:24px;padding:22px;box-shadow:0 12px 36px rgba(16,24,40,.06)
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.03em;color:var(--ink1)}
+.nav-brand img{width:32px;height:32px;border-radius:7px}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:15px;font-weight:500;color:var(--ink3);transition:color .15s}
+.nav-links a:hover{color:var(--ink1)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--ink1);color:#fff;
+  font-size:14px;font-weight:700;
+  letter-spacing:.01em;
+  padding:9px 18px;border-radius:999px;
+  box-shadow:0 4px 14px rgba(16,24,40,.18);
+  transition:opacity .15s, transform .15s;
 }
-.linkcard h2{margin:0 0 8px;font-size:24px;letter-spacing:-0.02em;color:var(--text)}
-.linkcard p{margin:0;color:var(--muted);line-height:1.6}
-.note{margin-top:22px;padding:16px 18px;border-radius:18px;background:rgba(17,119,255,.06);color:#26435e;border:1px solid rgba(17,119,255,.12)}
-code{background:rgba(16,24,40,.06);padding:2px 6px;border-radius:8px}
-@media (max-width: 640px){
-  .topbar{align-items:flex-start;flex-direction:column}
-  h1{font-size:34px}
-  .hero{padding:28px 22px}
-  .card{padding:22px}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+
+/* ── Hero ────────────────────────────────── */
+.hero{
+  display:grid;grid-template-columns:1fr 380px;gap:60px;
+  align-items:center;
+  max-width:1160px;margin:0 auto;
+  padding:80px 40px 70px;
+  box-sizing:border-box;
+}
+.hero-text h1{
+  font-size:clamp(40px,4.5vw,62px);
+  font-weight:900;
+  line-height:1.02;
+  letter-spacing:-.04em;
+  color:var(--ink1);
+  text-wrap:balance;
+}
+.hero-text h1 em{font-style:normal;color:var(--cyan)}
+.hero-text .sub{
+  margin-top:20px;
+  font-size:19px;line-height:1.6;
+  color:var(--ink3);max-width:480px;
+}
+.hero-text .sub strong{color:var(--ink2);font-weight:600}
+.hero-actions{display:flex;align-items:center;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn-appstore{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--ink1);color:#fff;
+  font-size:15px;font-weight:700;
+  padding:12px 22px;border-radius:14px;
+  transition:opacity .15s;
+}
+.btn-appstore:hover{opacity:.85}
+.btn-appstore svg{flex-shrink:0}
+.hero-note{font-size:13px;color:var(--ink4);display:flex;align-items:center;gap:5px}
+
+/* ── Phone mockup ────────────────────────── */
+.phone-wrap{display:flex;justify-content:center;align-items:flex-end;position:relative}
+.phone-bg-blob{
+  position:absolute;
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle, rgba(17,119,255,.13), transparent 70%);
+  bottom:-40px;left:50%;transform:translateX(-50%);
+  filter:blur(40px);pointer-events:none;
+}
+.phone{
+  position:relative;z-index:2;
+  width:280px;
+  background:#fff;
+  border-radius:40px;
+  box-shadow:0 40px 80px rgba(0,0,0,.15),0 0 0 1px rgba(0,0,0,.10);
+  overflow:hidden;
+}
+.phone-island{
+  position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:100px;height:30px;border-radius:20px;background:#000;z-index:10;
+}
+.phone-screen{padding:52px 16px 16px;background:linear-gradient(160deg,rgba(88,86,214,.10),rgba(0,199,190,.08));min-height:560px;position:relative}
+.phone-nav-title{font-size:13px;font-weight:700;color:var(--ink2);text-align:center;margin-bottom:14px;padding-top:6px}
+.phone-balance-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 12px;
+  background:rgba(255,255,255,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-radius:12px;margin-bottom:12px;
+  font-size:12px;font-weight:500;
+}
+.phone-balance-bar .label{color:var(--ink3)}
+.phone-balance-bar .val{font-weight:700;color:var(--ink1);font-variant-numeric:tabular-nums}
+.pcard{
+  background:rgba(255,255,255,.84);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-radius:18px;padding:14px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),inset 0 0 0 1px rgba(16,24,40,.04);
+  margin-bottom:10px;
+}
+.pcard-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.pcard-label{font-size:12px;color:var(--ink3);font-weight:500}
+.status-safe{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;background:rgba(52,199,89,.15);color:var(--safe);font-size:11px;font-weight:700}
+.hero-amount{font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--ink1);font-variant-numeric:tabular-nums;margin-bottom:10px}
+.progress-track{height:5px;background:rgba(52,199,89,.15);border-radius:999px;margin-bottom:10px}
+.progress-fill{width:72%;height:100%;background:var(--safe);border-radius:999px}
+.pmetrics{display:flex;gap:6px}
+.pmetric{flex:1;background:rgba(255,255,255,.62);border-radius:10px;padding:7px 8px}
+.pmetric .ml{font-size:9px;color:var(--ink3);font-weight:500}
+.pmetric .mv{font-size:13px;font-weight:700;color:var(--ink1);font-variant-numeric:tabular-nums;margin-top:1px}
+.phone-tabbar{
+  display:flex;
+  background:rgba(255,255,255,.90);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-top:0.5px solid rgba(0,0,0,.08);
+  padding:8px 0 4px;
+}
+.ptab{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:9px;font-weight:500;color:var(--ink3)}
+.ptab.active{color:var(--accent)}
+.ptab-icon{font-size:18px;line-height:1}
+.phone-home{width:100px;height:4px;border-radius:999px;background:rgba(0,0,0,.22);margin:10px auto 0}
+.phone-fab{
+  position:absolute;bottom:64px;right:14px;
+  width:42px;height:42px;border-radius:999px;
+  background:var(--accent);color:#fff;font-size:22px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 20px rgba(17,119,255,.4);z-index:5;
+}
+
+/* ── Features ────────────────────────────── */
+.features{width:100%;max-width:none;margin:0;padding:60px 40px 80px}
+.features .section-label,
+.features .section-headline,
+.features .features-grid{max-width:1160px;margin-left:auto;margin-right:auto}
+.section-label{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-headline{
+  font-size:clamp(28px,3vw,42px);
+  font-weight:800;letter-spacing:-.03em;color:var(--ink1);
+  line-height:1.1;max-width:540px;margin-bottom:48px;text-wrap:balance;
+}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature-card{
+  background:var(--card);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-radius:24px;padding:28px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),0 12px 36px rgba(16,24,40,.06);
+}
+.feature-icon{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;
+  background:var(--accent-soft);
+}
+.icon-svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.feature-icon .icon-svg{color:var(--ink2)}
+.feature-card h3{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink1)}
+.feature-card p{font-size:15px;line-height:1.65;color:var(--ink3)}
+
+/* ── Signal section ──────────────────────── */
+.signal{
+  width:100%;max-width:none;margin:0;
+  padding:80px 40px;
+}
+.signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;max-width:1160px;margin:0 auto}
+.signal-cards{display:flex;flex-direction:column;gap:12px;align-self:center}
+.signal-card{
+  background:var(--card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:20px;padding:18px 20px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.65),0 8px 28px rgba(16,24,40,.06);
+  display:flex;align-items:center;gap:14px;flex:1;
+}
+.signal-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.signal-card h4{font-size:16px;font-weight:700;color:var(--ink1);margin-bottom:2px}
+.signal-card p{font-size:13px;color:var(--ink3);line-height:1.5}
+.signal-text .section-headline{margin-bottom:20px}
+.signal-text p{font-size:17px;line-height:1.7;color:var(--ink3);margin-bottom:16px}
+.signal-text p strong{color:var(--ink2);font-weight:600}
+
+/* ── Privacy promise ─────────────────────── */
+.privacy{
+  width:100%;max-width:none;margin:0;
+  padding:80px 40px;
+}
+.privacy-card{
+  background:var(--card);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-radius:28px;padding:40px 44px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),0 18px 50px rgba(16,24,40,.07);
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;max-width:1160px;margin:0 auto;
+}
+.privacy-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(17,119,255,.08);color:var(--accent);
+  font-size:13px;font-weight:700;
+  padding:7px 14px;border-radius:999px;
+  margin-bottom:20px;
+}
+.privacy-card h2{font-size:28px;font-weight:800;letter-spacing:-.025em;color:var(--ink1);margin-bottom:12px;line-height:1.15}
+.privacy-card .sub{font-size:16px;line-height:1.65;color:var(--ink3)}
+.privacy-list{display:flex;flex-direction:column;gap:12px}
+.prow{
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(255,255,255,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-radius:14px;padding:14px 16px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
+}
+.prow-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--ink2)}
+.prow-icon .icon-svg{width:20px;height:20px}
+.prow h4{font-size:15px;font-weight:700;color:var(--ink1);margin-bottom:2px}
+.prow p{font-size:13px;color:var(--ink3);line-height:1.5}
+
+/* ── CTA ─────────────────────────────────── */
+.cta{
+  width:100%;max-width:none;margin:0;
+  padding:44px 40px 72px;
+}
+.cta-card{
+  background:var(--ink1);
+  border-radius:32px;
+  padding:64px 60px;
+  display:flex;align-items:center;justify-content:space-between;gap:40px;
+  position:relative;overflow:hidden;max-width:1160px;margin:0 auto;
+}
+.cta-card::before{
+  content:'';
+  position:absolute;top:-120px;right:-80px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle, rgba(75,200,245,.18), transparent 65%);
+  pointer-events:none;
+}
+.cta-card h2{font-size:clamp(26px,3vw,42px);font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.1;text-wrap:balance;margin-bottom:10px}
+.cta-card h2 em{font-style:normal;color:var(--cyan)}
+.cta-card .cta-sub{font-size:17px;color:rgba(255,255,255,.6);line-height:1.55}
+.cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex-shrink:0}
+.btn-appstore.light{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
+.btn-appstore.light:hover{background:rgba(255,255,255,.2)}
+.cta-fine{font-size:12px;color:rgba(255,255,255,.35)}
+
+/* ── Footer ──────────────────────────────── */
+footer{
+  border-top:0.5px solid rgba(16,24,40,.08);
+  padding:32px 40px;
+  width:100%;
+  max-width:none;
+  margin:0;
+  background:linear-gradient(180deg,#f6f8ff 0%,#edf8f5 100%);
+}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.footer-inner{max-width:1240px;margin:0 auto}
+.footer-brand{font-weight:700;font-size:15px;letter-spacing:-.02em;color:var(--ink2)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:14px;color:var(--ink4);font-weight:500;transition:color .15s}
+.footer-links a:hover{color:var(--ink2)}
+.footer-legal{font-size:13px;color:var(--ink4)}
+
+.features,.signal,.privacy,.cta,footer{content-visibility:auto;contain-intrinsic-size:700px}
+
+/* ── Responsive ──────────────────────────── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .hero{grid-template-columns:1fr;padding:56px 20px 40px;gap:40px}
+  .phone-wrap{order:-1}
+  .phone{width:240px}
+  .features{padding:40px 20px 56px}
+  .features-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .signal{padding:0 20px 56px}
+  .signal-grid{grid-template-columns:1fr;gap:20px}
+  .privacy{padding:36px 20px 56px}
+  .privacy-card{grid-template-columns:1fr;padding:28px 24px;gap:24px}
+  .cta{padding:28px 20px 64px}
+  .cta-card{flex-direction:column;padding:40px 28px;align-items:flex-start}
+  footer{padding:24px 20px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:12px}
+}
+@media(max-width:560px){
+  .features-grid{grid-template-columns:1fr}
+  .nav-links{gap:14px}
+  .nav-links a.hide-sm{display:none}
 }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <a class="brand" href="index.html">Spending Pulse</a>
-      <nav class="nav" aria-label="Legal navigation">
-        <a href="index.html">Home</a>
-        <a href="terms.html">Terms</a>
-        <a href="privacy.html">Privacy</a>
-      </nav>
+
+<!-- ── Nav ──────────────────────────────────── -->
+<nav>
+  <a class="nav-brand" href="index.html">
+    <img src="assets/logo-icon.png" width="32" height="32" style="border-radius:7px" alt="Spending Pulse">
+    Spending Pulse
+  </a>
+  <div class="nav-links">
+    <a href="terms.html" class="hide-sm">Terms</a>
+    <a href="privacy.html" class="hide-sm">Privacy</a>
+    <a href="mailto:support.spending.pulse@gmail.com" class="hide-sm">Support</a>
+    <a href="https://apps.apple.com/app/apple-store/id6759994055?pt=125941816&ct=Website&mt=8" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download
+    </a>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────── -->
+<section class="canvas-bg">
+  <div class="hero">
+    <div class="hero-text">
+      <h1><em>Feel good</em> spending money again.</h1>
+      <p class="sub">Spending Pulse answers one question every day: <strong>can I spend today without putting tomorrow at risk?</strong> One clear number. One daily signal. Zero budget spreadsheets.</p>
+      <div class="hero-actions" id="download">
+        <a href="https://apps.apple.com/app/apple-store/id6759994055?pt=125941816&ct=Website&mt=8" class="btn-appstore" aria-label="Download on App Store">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.25v9M5.75 8.5 9 11.75 12.25 8.5M3.25 14.25h11.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Download on App Store</span>
+        </a>
+      </div>
     </div>
-    
-<section class="card hero">
-  <h1>Spending Pulse</h1>
-  <!-- <p class="lead">Legal pages for the Spending Pulse app.</p> -->
-  <div class="grid">
-    <a class="linkcard" href="terms.html">
-      <h2>Terms &amp; Conditions</h2>
-      <!-- <p>Rules for using Spending Pulse, purchases, subscriptions, acceptable use, and liability limits.</p> -->
-    </a>
-    <a class="linkcard" href="privacy.html">
-      <h2>Privacy Policy</h2>
-      <!-- <p>How Spending Pulse handles app data, device storage, optional sync, and your controls over that data.</p> -->
-    </a>
+
+    <!-- phone mockup -->
+    <div class="phone-wrap">
+      <div class="phone-bg-blob"></div>
+      <img src="assets/device-screenshot.png" alt="Spending Pulse app showing Safe to spend today $125,73" width="300" height="640" fetchpriority="high" decoding="async" style="position:relative;z-index:2;width:300px;filter:drop-shadow(0 40px 60px rgba(0,0,0,.18))">
+    </div>
   </div>
-  <div class="footer">
-    <p>Questions can be sent to <a href="mailto:support.spending.pulse@gmail.com">support.spending.pulse@gmail.com</a>.</p>
-  </div>
-  <div class="meta">Last updated: March 13, 2026</div>
 </section>
 
+<!-- ── Features ──────────────────────────────── -->
+<section class="features canvas-bg">
+  <div class="section-label">Features</div>
+  <h2 class="section-headline">Everything you need to make calm daily money decisions.</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 12h3l2.5-6 5 12 2.5-6H21"/></svg></div>
+      <h3>Daily spending signal</h3>
+      <p>See exactly how much is safe to spend today and whether you're on track — Safe, Close to limit, At the limit, or Overspent.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(52,199,89,.10)" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 19h16"/><path d="m7 15 4-4 3 3 4-5"/></svg></div>
+      <h3>Balance outlook</h3>
+      <p>A rolling 30-day projection of your balance against your safety floor. See at a glance when you might dip below your cushion.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(255,149,0,.10)" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></div>
+      <h3>Bills & recurring income</h3>
+      <p>Add recurring bills and income. Mark them paid, postpone, or let auto-pay handle them. Never miss what's due next.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(175,82,222,.10)" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 3 14.7 9.3 21 12l-6.3 2.7L12 21l-2.7-6.3L3 12l6.3-2.7z"/></svg></div>
+      <h3>Insights & streaks</h3>
+      <p>Category breakdown by period, a coaching feed, and a daily streak — how many days in a row you've stayed within your limit.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(75,200,245,.12)" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 2h6M9 22h6"/></svg></div>
+      <h3>Apple Watch & widgets</h3>
+      <p>Check your safe-to-spend number from your wrist or your Lock Screen. The Watch app works offline and syncs when your phone reconnects.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(17,119,255,.08)" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .2-8A5.5 5.5 0 0 0 6.5 8.7 4.2 4.2 0 0 0 7 18Z"/></svg></div>
+      <h3>Private iCloud sync</h3>
+      <p>Your data lives in your own iCloud account. It syncs across all your Apple devices — and no one else can see it, including us.</p>
+    </div>
   </div>
+</section>
+
+<!-- ── Signal section ────────────────────────── -->
+<section class="signal canvas-bg">
+  <div class="signal-grid">
+    <div class="signal-text">
+      <div class="section-label">The signal</div>
+      <h2 class="section-headline">Four states. One clear answer.</h2>
+      <p>Every day Spending Pulse calculates your <strong>safe daily spend</strong> — your remaining balance minus your safety floor, divided over the next 30 days, minus upcoming bills. Then it tells you exactly where you stand.</p>
+      <p>No percentages to interpret. No category budgets to chase. Just a number and a status.</p>
+    </div>
+    <div class="signal-cards">
+      <div class="signal-card">
+        <div class="signal-dot" style="background:#34C759"></div>
+        <div>
+          <h4>Safe</h4>
+          <p>You have room to spend. Your balance is on track and above your safety floor.</p>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-dot" style="background:#FF9500"></div>
+        <div>
+          <h4>Close to limit</h4>
+          <p>You're using most of today's allowance. Spend carefully for the rest of the day.</p>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-dot" style="background:#FF3B30"></div>
+        <div>
+          <h4>At the limit</h4>
+          <p>Today's safe-to-spend has been fully used. Any extra comes from tomorrow's allowance.</p>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-dot" style="background:#FF3B30;opacity:.6"></div>
+        <div>
+          <h4>Overspent</h4>
+          <p>You've gone past today's limit. Your projected balance is below your safety floor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Privacy ────────────────────────────────── -->
+<section class="privacy canvas-bg">
+  <div class="privacy-card">
+    <div>
+      <div class="privacy-badge">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L2 3.5V7c0 2.76 2.17 4.97 5 5.9 2.83-.93 5-3.14 5-5.9V3.5L7 1Z" stroke="#1177FF" stroke-width="1.3"/></svg>
+        Privacy
+      </div>
+      <h2>Your data stays where it belongs — with you.</h2>
+      <p class="sub">Spending Pulse stores everything on your device and syncs through your private iCloud database. The developer has no access to your financial data. No tracking, no ads, no selling your information.</p>
+    </div>
+    <div class="privacy-list">
+      <div class="prow">
+        <div class="prow-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M10.5 18.5h3"/></svg></div>
+        <div>
+          <h4>On-device storage</h4>
+          <p>All transactions, bills, and categories are stored locally first.</p>
+        </div>
+      </div>
+      <div class="prow">
+        <div class="prow-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .2-8A5.5 5.5 0 0 0 6.5 8.7 4.2 4.2 0 0 0 7 18Z"/></svg></div>
+        <div>
+          <h4>Your iCloud, not ours</h4>
+          <p>If sync is enabled, data goes to your private iCloud account — not our servers.</p>
+        </div>
+      </div>
+      <div class="prow">
+        <div class="prow-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 1 1 8 0v3"/></svg></div>
+        <div>
+          <h4>No account required</h4>
+          <p>Use the full app without creating an account or providing any personal details.</p>
+        </div>
+      </div>
+      <div class="prow">
+        <div class="prow-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 8.5 7 7"/></svg></div>
+        <div>
+          <h4>No ads. Ever.</h4>
+          <p>Spending Pulse is supported by an optional Plus subscription, not advertising.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────── -->
+<section class="cta">
+  <div class="cta-card">
+    <div>
+      <h2>Ready to <em>stop guessing</em> and start spending with confidence?</h2>
+      <p class="cta-sub">Download Spending Pulse free. No account, no bank link, no setup. Just open the app and start.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://apps.apple.com/app/apple-store/id6759994055?pt=125941816&ct=Website&mt=8" class="btn-appstore light" aria-label="Download on App Store">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.25v9M5.75 8.5 9 11.75 12.25 8.5M3.25 14.25h11.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Download on App Store</span>
+      </a>
+      <span class="cta-fine">Free · iPhone, Apple Watch & widgets</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Spending Pulse</span>
+    <div class="footer-links">
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:support.spending.pulse@gmail.com">support.spending.pulse@gmail.com</a>
+    </div>
+    <span class="footer-legal">© 2026 Spending Pulse · Last updated March 13, 2026</span>
+  </div>
+</footer>
+
 </body>
 </html>
