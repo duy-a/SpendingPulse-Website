@@ -39,8 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
     </a>
     <a href="terms.html">Điều khoản</a>
     <a href="privacy.html" class="active">Quyền riêng tư</a>
-      <a href="privacy.html" style="display:none"></a>
-    <div class="lang-switch" style="display:inline-flex;gap:8px;margin-left:10px"><a href="privacy.html" style="font-size:13px">English</a><span style="color:#98A2B3">|</span><a href="privacy.vi.html" style="font-size:13px">Tiếng Việt</a></div>
+          <div class="lang-switch" style="display:inline-flex;gap:8px;margin-left:10px"><a href="privacy.html" class="lang-link-en" style="font-size:13px">English</a><span style="color:#98A2B3">|</span><a href="privacy.vi.html" class="lang-link-vi" style="font-size:13px">Tiếng Việt</a></div>
   </div>
 </nav>
 
@@ -137,6 +136,30 @@ window.addEventListener('DOMContentLoaded', () => {
     <span class="footer-legal">© 2026 Spending Pulse</span>
   </div>
 </footer>
+
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const base = page.replace('.vi.html', '.html');
+  const isViPage = page.endsWith('.vi.html');
+
+  const enPage = base;
+  const viPage = base.replace('.html', '.vi.html');
+
+  const enLink = document.querySelector('.lang-link-en');
+  const viLink = document.querySelector('.lang-link-vi');
+  if (enLink) enLink.href = enPage;
+  if (viLink) viLink.href = viPage;
+
+  if (enLink) enLink.addEventListener('click', () => localStorage.setItem('sp_lang', 'en'));
+  if (viLink) viLink.addEventListener('click', () => localStorage.setItem('sp_lang', 'vi'));
+
+  const preferred = localStorage.getItem('sp_lang');
+  if (preferred === 'vi' && !isViPage) window.location.replace(viPage);
+  if (preferred === 'en' && isViPage) window.location.replace(enPage);
+});
+</script>
 
 </body>
 </html>
