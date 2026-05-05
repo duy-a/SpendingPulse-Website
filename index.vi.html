@@ -523,9 +523,15 @@ footer{
 
 <script>
 window.addEventListener('DOMContentLoaded', () => {
-  const page = window.location.pathname.split('/').pop() || 'index.html';
-  const base = page.replace('.vi.html', '.html');
-  const isViPage = page.endsWith('.vi.html');
+  const rawPage = window.location.pathname.split('/').pop() || 'index.html';
+  const normalizedPage = rawPage.includes('.') ? rawPage : `${rawPage || 'index'}.html`;
+  const isViPage = normalizedPage.endsWith('.vi.html');
+
+  const base = isViPage
+    ? normalizedPage.replace('.vi.html', '.html')
+    : normalizedPage.endsWith('.html')
+      ? normalizedPage
+      : `${normalizedPage}.html`;
 
   const enPage = base;
   const viPage = base.replace('.html', '.vi.html');
@@ -539,8 +545,16 @@ window.addEventListener('DOMContentLoaded', () => {
   if (viLink) viLink.addEventListener('click', () => localStorage.setItem('sp_lang', 'vi'));
 
   const preferred = localStorage.getItem('sp_lang');
-  if (preferred === 'vi' && !isViPage) window.location.replace(viPage);
-  if (preferred === 'en' && isViPage) window.location.replace(enPage);
+  const currentPath = window.location.pathname;
+  const targetVi = `/${viPage}`;
+  const targetEn = `/${enPage}`;
+
+  if (preferred === 'vi' && !isViPage && currentPath !== targetVi) {
+    window.location.replace(viPage);
+  }
+  if (preferred === 'en' && isViPage && currentPath !== targetEn) {
+    window.location.replace(enPage);
+  }
 });
 </script>
 
