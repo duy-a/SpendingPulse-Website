@@ -177,6 +177,25 @@ nav{
 .article-content ul{margin:0 0 18px 22px}
 .article-content li{font-size:17px;line-height:1.75;color:var(--ink2);margin-bottom:6px}
 .article-content strong{font-weight:750;color:var(--ink1)}
+.article-content a{
+  color:var(--accent);
+  font-weight:700;
+  text-decoration:underline;
+  text-decoration-thickness:2px;
+  text-underline-offset:3px;
+  text-decoration-color:rgba(17,119,255,.35);
+  transition:color .15s, text-decoration-color .15s, background .15s;
+}
+.article-content a:hover{
+  color:#0B5ED7;
+  text-decoration-color:currentColor;
+  background:rgba(17,119,255,.08);
+}
+.article-content a:focus-visible{
+  outline:3px solid rgba(17,119,255,.28);
+  outline-offset:3px;
+  border-radius:4px;
+}
 .article-cta{
   margin-top:32px;
   padding:22px;
