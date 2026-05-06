@@ -58,7 +58,7 @@ Every article must be SEO-friendly:
 - Use descriptive H2 sections with natural search phrasing.
 - Avoid duplicate title/meta descriptions across articles.
 - Keep the blog index excerpt concise and aligned with search intent.
-- Add internal links only when relevant; never force privacy/terms links into unrelated articles.
+- Add contextual internal links to other blog articles as references; never force privacy/terms links into unrelated articles.
 
 ## Article Structure
 
@@ -74,11 +74,25 @@ Each article page must reuse the current site pattern:
 - language switch linking English and Vietnamese versions
 - article header with category, H1, lead, date, read time, and `Spending Pulse`
 - article body inside `article.article-content`
+- at least one contextual link inside `article.article-content` to another article in the same language
 - optional short `.article-cta` paragraph explaining how Spending Pulse solves the problem, only when it fits naturally
 - bottom CTA section matching existing article pages
 - same footer structure
 
 Vietnamese copy must use proper Vietnamese diacritics.
+
+## Internal Article References
+
+Every article must include internal references to other blog articles:
+
+- Add at least one link inside the article content, not only in the index, footer, language switch, or CTA.
+- Prefer 1-3 links when they are natural and useful.
+- Link to same-language article URLs:
+  - English article pages should link to `../<other-slug>/`.
+  - Vietnamese article pages should link to `../<other-slug>/`.
+- Use descriptive anchor text that names the referenced idea, not generic text like `click here`.
+- Keep links contextual: add them where the referenced article actually helps the reader.
+- Do not link an article to itself.
 
 ## Length and Read Time
 
@@ -113,12 +127,20 @@ Update the article count on each index.
 
 ## Sitemap
 
-Update `sitemap.txt` with both URLs:
+Update `sitemap.txt` with both URLs for every article slug, no exceptions:
 
 - `https://spendingpulse.app/blog/<slug>/`
 - `https://spendingpulse.app/vi/blog/<slug>/`
 
 Keep existing URLs intact.
+
+Before finishing, verify sitemap parity across all article folders:
+
+- every `blog/<slug>/index.html` except `blog/index.html` has `https://spendingpulse.app/blog/<slug>/`
+- every matching `vi/blog/<slug>/index.html` has `https://spendingpulse.app/vi/blog/<slug>/`
+- every English article slug has a Vietnamese article folder
+- every Vietnamese article slug has an English article folder
+- do not treat the sitemap update as done if only the English URL exists
 
 ## Validation
 
@@ -129,7 +151,10 @@ After editing, run checks equivalent to:
 - confirm title and meta description exist
 - confirm blog index links point to the new slug
 - confirm language switch links are correct both ways
-- confirm sitemap includes both URLs
+- confirm each article body has at least one same-language link to another article
+- confirm no article body links to itself as its only internal article reference
+- confirm sitemap includes both English and Vietnamese URLs for the new slug
+- confirm sitemap includes both English and Vietnamese URLs for all existing article slugs, not only the new article
 - `rg` for placeholders such as `TODO`, `TBD`, `Lorem`, and stale `featured` terminology
 - `rg` likely unaccented Vietnamese phrases in `vi/blog`
 
