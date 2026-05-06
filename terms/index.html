@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="../styles/legal.css">
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.legal-section');
@@ -27,18 +27,17 @@ window.addEventListener('DOMContentLoaded', () => {
 <body class="canvas-bg">
 
 <nav>
-  <a class="nav-brand" href="index.html">
+  <a class="nav-brand" href="../index.html">
     <img src="../assets/logo-icon.png" width="28" height="28" style="border-radius:6px" alt="Spending Pulse">
     Spending Pulse
   </a>
   <div class="nav-links">
-    <a href="index.html" class="nav-back">
+    <a href="../index.html" class="nav-back">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#1177FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Home
     </a>
-    <a href="terms.html" class="active">Terms</a>
-    <a href="privacy.html">Privacy</a>
-    <div class="lang-switch" style="display:inline-flex;gap:8px;margin-left:10px"><a href="terms.html" class="lang-link-en" style="font-size:13px">English</a><span style="color:#98A2B3">|</span><a href="terms.vi.html" class="lang-link-vi" style="font-size:13px">Tiếng Việt</a></div>
+    <a href="../blog/">Blog</a>
+    <div class="lang-switch" style="display:inline-flex;gap:8px;margin-left:10px"><a href="./" class="lang-link-en" style="font-size:13px">English</a><span style="color:#98A2B3">|</span><a href="../vi/terms/" class="lang-link-vi" style="font-size:13px">Tiếng Việt</a></div>
   </div>
 </nav>
 
@@ -141,9 +140,10 @@ window.addEventListener('DOMContentLoaded', () => {
   <div class="footer-inner">
     <span class="footer-brand">Spending Pulse</span>
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="terms.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
+      <a href="../index.html">Home</a>
+      <a href="../blog/">Blog</a>
+      <a href="./">Terms</a>
+      <a href="../privacy/">Privacy</a>
       <a href="mailto:support@spendingpulse.app">Contact</a>
     </div>
     <span class="footer-legal">© 2026 Spending Pulse</span>
@@ -153,38 +153,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 <script>
 window.addEventListener('DOMContentLoaded', () => {
-  const rawPage = window.location.pathname.split('/').pop() || 'index.html';
-  const normalizedPage = rawPage.includes('.') ? rawPage : `${rawPage || 'index'}.html`;
-  const isViPage = normalizedPage.endsWith('.vi.html');
-
-  const base = isViPage
-    ? normalizedPage.replace('.vi.html', '.html')
-    : normalizedPage.endsWith('.html')
-      ? normalizedPage
-      : `${normalizedPage}.html`;
-
-  const enPage = base;
-  const viPage = base.replace('.html', '.vi.html');
-
   const enLink = document.querySelector('.lang-link-en');
   const viLink = document.querySelector('.lang-link-vi');
-  if (enLink) enLink.href = enPage;
-  if (viLink) viLink.href = viPage;
-
   if (enLink) enLink.addEventListener('click', () => localStorage.setItem('sp_lang', 'en'));
   if (viLink) viLink.addEventListener('click', () => localStorage.setItem('sp_lang', 'vi'));
-
-  const preferred = localStorage.getItem('sp_lang');
-  const currentPath = window.location.pathname;
-  const targetVi = `/${viPage}`;
-  const targetEn = `/${enPage}`;
-
-  if (preferred === 'vi' && !isViPage && currentPath !== targetVi) {
-    window.location.replace(viPage);
-  }
-  if (preferred === 'en' && isViPage && currentPath !== targetEn) {
-    window.location.replace(enPage);
-  }
 });
 </script>
 
