@@ -18,7 +18,10 @@
   </a>
   <div class="nav-links">
     <a href="./" class="active">Blog</a>
-    <a href="https://apps.apple.com/app/apple-store/id6759994055?pt=125941816&ct=WebsiteBlog&mt=8" class="nav-cta">Download</a>
+    <a href="https://apps.apple.com/app/apple-store/id6759994055?pt=125941816&ct=WebsiteBlog&mt=8" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download
+    </a>
     <div class="lang-switch" style="display:inline-flex;gap:8px;margin-left:2px"><a href="./" class="lang-link-en" style="font-size:13px">English</a><span style="color:#98A2B3">|</span><a href="../vi/blog/" class="lang-link-vi" style="font-size:13px">Tiếng Việt</a></div>
   </div>
 </nav>
@@ -32,48 +35,53 @@
 
   <section class="blog-layout" aria-label="Blog articles">
     <div>
-      <article class="featured-post">
-        <div class="featured-copy">
-          <div class="post-kicker">Featured guide</div>
-          <h2>Safe-to-spend vs. budgeting: what changes when the question gets smaller?</h2>
-          <p>Traditional budgets ask you to manage dozens of categories. A safe-to-spend number asks one question: can you spend today without damaging the next 30 days?</p>
-          <div class="post-meta"><span>May 6, 2026</span><span>6 min read</span><span>Daily money</span></div>
-          <a class="read-link" href="safe-to-spend-vs-budget/">Read article -&gt;</a>
-        </div>
-        <div class="featured-panel" aria-hidden="true">
-          <div class="signal-card">
-            <div class="signal-label">Safe to spend today</div>
-            <div class="signal-amount">$126</div>
-            <div class="signal-note">After upcoming bills and your safety floor.</div>
-          </div>
-        </div>
-      </article>
-
-      <h2 class="section-title">Latest articles</h2>
+      <div class="article-list-header">
+        <h2 class="section-title">Latest articles</h2>
+        <span class="article-count">1 published</span>
+      </div>
       <div class="post-grid">
-        <a class="post-card" href="safe-to-spend-vs-budget/">
+        <a class="post-card post-card-primary" href="safe-to-spend-vs-budget/">
           <div class="post-kicker">Daily money</div>
-          <h3>Safe-to-spend vs. budgeting</h3>
-          <p>A cleaner way to decide whether today's spending is actually safe.</p>
+          <h3>Safe-to-spend vs. budgeting: what changes when the question gets smaller?</h3>
+          <p>Traditional budgets ask you to manage dozens of categories. A safe-to-spend number asks one question: can you spend today without damaging the next 30 days?</p>
           <div class="post-meta"><span>May 6, 2026</span><span>6 min read</span></div>
+          <div class="post-tags" aria-label="Article topics">
+            <span>Daily spending</span>
+            <span>Cash flow</span>
+            <span>Bills</span>
+            <span>Safety floor</span>
+          </div>
+          <span class="read-link">Read article -&gt;</span>
         </a>
         <article class="post-card">
           <div class="post-kicker">Coming soon</div>
           <h3>How to choose a safety floor that is not fake discipline</h3>
           <p>A useful cushion has to survive real bills, irregular spending, and bad weeks.</p>
-          <div class="post-meta"><span>Planning</span><span>Cash flow</span></div>
+          <div class="post-meta"><span>Planning</span></div>
+          <div class="post-tags" aria-label="Article topics">
+            <span>Safety floor</span>
+            <span>Cash flow</span>
+          </div>
         </article>
         <article class="post-card">
           <div class="post-kicker">Coming soon</div>
           <h3>Why bill timing matters more than category budgets</h3>
           <p>Two people can spend the same amount and face completely different risk.</p>
-          <div class="post-meta"><span>Planning</span><span>Bills</span></div>
+          <div class="post-meta"><span>Planning</span></div>
+          <div class="post-tags" aria-label="Article topics">
+            <span>Bills</span>
+            <span>Cash flow</span>
+          </div>
         </article>
         <article class="post-card">
           <div class="post-kicker">Coming soon</div>
           <h3>The low-maintenance weekly money check</h3>
           <p>A short routine for keeping your spending signal useful without babysitting it.</p>
-          <div class="post-meta"><span>Habits</span><span>Weekly review</span></div>
+          <div class="post-meta"><span>Habits</span></div>
+          <div class="post-tags" aria-label="Article topics">
+            <span>Daily spending</span>
+            <span>Apple Watch</span>
+          </div>
         </article>
       </div>
     </div>
@@ -88,10 +96,6 @@
           <span class="topic-pill">Safety floor</span>
           <span class="topic-pill">Apple Watch</span>
         </div>
-      </div>
-      <div class="side-card">
-        <h2>Article structure</h2>
-        <p>Add new posts under <strong>/blog/</strong>, then add them to this index and sitemap. Keep each article focused on one money decision, not generic finance advice.</p>
       </div>
     </aside>
   </section>

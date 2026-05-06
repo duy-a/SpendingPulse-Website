@@ -1,0 +1,8 @@
+interface:
+  display_name: "Blog Post Generation"
+  short_description: "Create SEO-ready Spending Pulse blog posts"
+  brand_color: "#1177FF"
+  default_prompt: "Use $blog-post-generation to create a new SEO-friendly Spending Pulse blog post."
+
+policy:
+  allow_implicit_invocation: true
