@@ -1,6 +1,10 @@
 https://spendingpulse.app/
-https://spendingpulse.app/index.vi.html
-https://spendingpulse.app/privacy.html
-https://spendingpulse.app/privacy.vi.html
-https://spendingpulse.app/terms.html
-https://spendingpulse.app/terms.vi.html
+https://spendingpulse.app/vi/
+https://spendingpulse.app/blog/
+https://spendingpulse.app/vi/blog/
+https://spendingpulse.app/blog/safe-to-spend-vs-budget/
+https://spendingpulse.app/vi/blog/safe-to-spend-vs-budget/
+https://spendingpulse.app/privacy/
+https://spendingpulse.app/vi/privacy/
+https://spendingpulse.app/terms/
+https://spendingpulse.app/vi/terms/
