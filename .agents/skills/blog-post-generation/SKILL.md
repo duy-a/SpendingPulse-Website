@@ -80,6 +80,17 @@ Each article page must reuse the current site pattern:
 
 Vietnamese copy must use proper Vietnamese diacritics.
 
+## Length and Read Time
+
+Articles should be substantial enough to justify their displayed read time:
+
+- Target 5-7 minutes depending on topic depth.
+- Use roughly 900-1,300 English words for most articles.
+- Vietnamese versions may have a different word count, but should feel equally complete and should usually be marked 5-7 phút đọc.
+- Do not inflate read time for short posts. If the article is short, expand the article or lower the read time.
+- Keep article-page read time and blog-index read time exactly aligned.
+- Prefer adding practical examples, decision rules, setup checks, and common mistakes over filler.
+
 ## Blog Index Updates
 
 Update both indexes:
