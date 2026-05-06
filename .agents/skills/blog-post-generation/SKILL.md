@@ -60,6 +60,47 @@ Every article must be SEO-friendly:
 - Keep the blog index excerpt concise and aligned with search intent.
 - Add contextual internal links to other blog articles as references; never force privacy/terms links into unrelated articles.
 
+## Article Images
+
+Every new article must include one generated main image unless the user explicitly asks for text-only output.
+
+Image requirements:
+
+- Generate a related raster image for the article topic using the `imagegen` skill when available.
+- Use one shared image for the English and Vietnamese versions of the same article.
+- Save the image under `assets/blog/<slug>-hero.png`.
+- Use a fixed `1200x630` image size, matching the Open Graph ratio.
+- Do not include readable UI text, fake app screenshots, fake financial numbers, logos, or tiny chart labels inside generated images.
+- Prefer realistic daily-money scenes, simple cash-flow planning objects, phone/watch context without legible private data, or clean editorial illustrations tied to the topic.
+- Keep the image visually relevant to the specific article, not generic finance stock imagery.
+- Write concise localized alt text for each language.
+
+Article-page image placement:
+
+- Add the main image immediately after `header.article-header` and before `article.article-content`.
+- Use this pattern in English:
+  - `<figure class="article-hero-image"><img src="../../assets/blog/<slug>-hero.png" width="1200" height="630" alt="..."></figure>`
+- Use this pattern in Vietnamese:
+  - `<figure class="article-hero-image"><img src="../../../assets/blog/<slug>-hero.png" width="1200" height="630" alt="..."></figure>`
+
+Blog-index image placement:
+
+- Add the same image as the first child inside the article card.
+- English index pattern: `<div class="post-image"><img src="../assets/blog/<slug>-hero.png" width="1200" height="630" alt="..."></div>`
+- Vietnamese index pattern: `<div class="post-image"><img src="../../assets/blog/<slug>-hero.png" width="1200" height="630" alt="..."></div>`
+- All card images must use the existing `.post-image` wrapper so every image has the same ratio.
+
+SEO image tags:
+
+- Add absolute image meta tags to both language article pages:
+  - `og:image`
+  - `og:image:width` with `1200`
+  - `og:image:height` with `630`
+  - `twitter:card` with `summary_large_image`
+  - `twitter:image`
+- Use `https://spendingpulse.app/assets/blog/<slug>-hero.png` for all image meta tags.
+- Add `og:title`, `og:description`, `og:type`, and `og:url` when creating a new article page so the image metadata has complete context.
+
 ## Article Structure
 
 Create both language versions:
@@ -73,6 +114,7 @@ Each article page must reuse the current site pattern:
 - correct relative paths for CSS/assets
 - language switch linking English and Vietnamese versions
 - article header with category, H1, lead, date, read time, and `Spending Pulse`
+- generated main image after the article header
 - article body inside `article.article-content`
 - at least one contextual link inside `article.article-content` to another article in the same language
 - optional short `.article-cta` paragraph explaining how Spending Pulse solves the problem, only when it fits naturally
@@ -114,6 +156,7 @@ Update both indexes:
 
 Add the new article to the article grid with:
 
+- generated card image in the fixed `.post-image` ratio
 - article link
 - category kicker
 - concise H3
@@ -149,6 +192,10 @@ After editing, run checks equivalent to:
 - confirm both new article files exist
 - confirm each new article has exactly one `<h1`
 - confirm title and meta description exist
+- confirm the generated image exists at `assets/blog/<slug>-hero.png`
+- confirm the article hero image and blog index card image use the generated image
+- confirm generated images are `1200x630` or keep the same `1200 / 630` ratio if the tool outputs a larger equivalent
+- confirm `og:image` and `twitter:image` point to the absolute production image URL
 - confirm blog index links point to the new slug
 - confirm language switch links are correct both ways
 - confirm each article body has at least one same-language link to another article

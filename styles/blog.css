@@ -110,15 +110,67 @@ nav{
 .post-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
 .post-card{
   min-height:220px;
-  padding:24px;
+  padding:16px 16px 24px;
   background:var(--card);
   border-radius:20px;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.68),0 8px 28px rgba(16,24,40,.06);
   transition:transform .15s, box-shadow .15s;
   display:flex;
   flex-direction:column;
+  overflow:hidden;
 }
 .post-card:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.68),0 12px 34px rgba(16,24,40,.09)}
+.post-image{
+  width:100%;
+  aspect-ratio:1200 / 630;
+  border-radius:14px;
+  margin-bottom:18px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.36), rgba(255,255,255,0) 46%),
+    linear-gradient(145deg, #1177ff 0%, #4bc8f5 46%, #079455 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.46),0 10px 24px rgba(16,24,40,.08);
+  overflow:hidden;
+}
+.post-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.post-image-bill-timing{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,0) 45%),
+    linear-gradient(150deg, #0f766e 0%, #4bc8f5 52%, #1177ff 100%);
+}
+.post-image-safe-spend{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,0) 46%),
+    linear-gradient(150deg, #1177ff 0%, #7c3aed 48%, #079455 100%);
+}
+.post-image-safety-floor{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.40), rgba(255,255,255,0) 48%),
+    linear-gradient(150deg, #344054 0%, #1177ff 50%, #4bc8f5 100%);
+}
+.post-image-weekly-check{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,0) 45%),
+    linear-gradient(150deg, #079455 0%, #4bc8f5 50%, #1177ff 100%);
+}
+.post-image-widgets{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,0) 46%),
+    linear-gradient(150deg, #4bc8f5 0%, #1177ff 48%, #101828 100%);
+}
+.post-image-income{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,0) 45%),
+    linear-gradient(150deg, #079455 0%, #12b76a 42%, #1177ff 100%);
+}
+.post-image-reminders{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,0) 46%),
+    linear-gradient(150deg, #1177ff 0%, #4bc8f5 48%, #667085 100%);
+}
 .post-card h3{font-size:20px;line-height:1.2;letter-spacing:-.02em;color:var(--ink1);margin-bottom:10px}
 .post-card p{font-size:15px;line-height:1.65;color:var(--ink3);margin-bottom:18px}
 .post-card .post-meta{margin-top:auto}
@@ -140,11 +192,12 @@ nav{
 .post-card-primary{
   grid-column:span 2;
   min-height:280px;
-  padding:30px;
+  padding:18px 18px 30px;
   background:rgba(255,255,255,.90);
   border-radius:24px;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.72),0 16px 44px rgba(16,24,40,.08);
 }
+.post-card-primary .post-image{border-radius:18px;margin-bottom:22px}
 .post-card-primary h3{max-width:680px;font-size:clamp(28px,3vw,40px);line-height:1.08;letter-spacing:-.03em}
 .post-card-primary p{max-width:660px;font-size:16px;line-height:1.7}
 .post-card-primary .read-link{margin-top:2px}
@@ -165,6 +218,19 @@ nav{
 .article-header{margin-bottom:34px}
 .article-header h1{font-size:clamp(36px,4.8vw,58px);line-height:1.04;letter-spacing:-.04em;color:var(--ink1);margin-bottom:16px}
 .article-header .lead{font-size:20px;line-height:1.58;color:var(--ink3);margin-bottom:18px}
+.article-hero-image{
+  aspect-ratio:1200 / 630;
+  margin:0 0 28px;
+  border-radius:24px;
+  overflow:hidden;
+  background:rgba(255,255,255,.70);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),0 18px 50px rgba(16,24,40,.07);
+}
+.article-hero-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 .article-content{
   background:rgba(255,255,255,.86);
   border-radius:26px;
@@ -293,7 +359,7 @@ footer{
   .nav-cta{padding:8px 14px}
   .post-grid{grid-template-columns:1fr}
   .article-list-header{align-items:flex-start;flex-direction:column;gap:6px}
-  .post-card-primary{padding:24px}
+  .post-card-primary{padding:16px 16px 24px}
   .topic-list{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
   .topic-pill{flex:0 0 auto}
 }
