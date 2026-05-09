@@ -1,6 +1,6 @@
 ---
 name: blog-post-generation
-description: Generate SEO-friendly Spending Pulse blog posts for this static website, including English and Vietnamese article pages, blog index updates, sitemap updates, topic tags, and app-positioned calls to action. Use for creating new app-related articles, topic ideas, tips, tricks, and practical safe-to-spend money guidance for Spending Pulse.
+description: Generate reader-first, SEO-friendly Spending Pulse blog posts for this static website, including English and Vietnamese article pages, blog index updates, sitemap updates, topic tags, practical safe-to-spend guidance, and contextual app-positioned calls to action. Use for creating new app-related articles, topic ideas, tips, tricks, and practical safe-to-spend money guidance for Spending Pulse without turning posts into product-first feature tours.
 ---
 
 # Blog Post Generation
@@ -8,6 +8,17 @@ description: Generate SEO-friendly Spending Pulse blog posts for this static web
 Use this skill only inside the SpendingPulse-Website repo.
 
 Goal: create complete, SEO-friendly Spending Pulse blog posts that are practical, app-related, and ready to publish in the static site.
+
+## Editorial Positioning
+
+Search intent comes first, but the article should not feel like a product pitch.
+
+- Lead with the reader's problem, feeling, or decision moment.
+- Use `hesitation -> clarity -> relief` as the default emotional arc.
+- Treat "Feel good spending money again" as the emotional direction, not a slogan to repeat.
+- Make the article useful even if the reader has not installed Spending Pulse.
+- Do not turn articles into feature tours, update posts, demos, or release notes unless the user explicitly asks for that format.
+- Let Spending Pulse appear as the natural tool near the end, after the article has already answered the reader's search intent.
 
 ## Required Sources
 
@@ -43,6 +54,8 @@ Generate topics related to Spending Pulse and its actual app surface:
 - low-maintenance routines
 
 Prefer concrete tips and tricks over generic finance advice.
+
+Make the visible article angle reader-first. For example, prefer "how to stop guessing before spending" over "Spending Pulse widgets." App surfaces are supporting proof, not the main subject.
 
 Do not position Spending Pulse as a traditional budgeting, spreadsheet, accounting, or bank-linking app. The durable positioning is: a simple daily safe-to-spend signal based on recurring bills, income, balance, and safety floor.
 
@@ -117,7 +130,9 @@ Each article page must reuse the current site pattern:
 - generated main image after the article header
 - article body inside `article.article-content`
 - at least one contextual link inside `article.article-content` to another article in the same language
-- optional short `.article-cta` paragraph explaining how Spending Pulse solves the problem, only when it fits naturally
+- avoid product mentions in the H1, lead, intro, and early H2s unless the article is explicitly product-focused or comparison-focused
+- article body must stand alone as practical advice before any app bridge appears
+- optional short `.article-cta` paragraph or short "where this fits" section explaining how Spending Pulse solves the problem, only when it fits naturally and late in the article
 - bottom CTA section matching existing article pages
 - same footer structure
 
@@ -200,6 +215,10 @@ After editing, run checks equivalent to:
 - confirm language switch links are correct both ways
 - confirm each article body has at least one same-language link to another article
 - confirm no article body links to itself as its only internal article reference
+- confirm the article is not mostly about Spending Pulse features
+- confirm the first half answers the search intent without requiring the app
+- confirm product mentions are limited, contextual, and not repeated as filler
+- confirm the emotional job is clear: less guessing, less overthinking, more calm spending confidence
 - confirm sitemap includes both English and Vietnamese URLs for the new slug
 - confirm sitemap includes both English and Vietnamese URLs for all existing article slugs, not only the new article
 - `rg` for placeholders such as `TODO`, `TBD`, `Lorem`, and stale `featured` terminology
