@@ -13,8 +13,8 @@ Goal: create complete, SEO-friendly Spending Pulse blog posts that are practical
 
 Before drafting, refresh app context from these external files when available:
 
-- `/Users/duy_a/Desktop/Projects/SpendingPulse/SpendingPulse/docs/context/Feature List.md`
-- `/Users/duy_a/Desktop/Projects/SpendingPulse/SpendingPulse/docs/marketing/App Store Description.md`
+- `/Users/duy_a/OneDrive/1. Projects/Spending Pulse - Marketing/Feature List.md`
+- `/Users/duy_a/OneDrive/1. Projects/Spending Pulse - Marketing/App Store Description.md`
 
 If either file is unavailable, continue from current website/blog copy and state that app feature context was not refreshed.
 

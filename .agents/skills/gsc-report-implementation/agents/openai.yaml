@@ -1,0 +1,8 @@
+interface:
+  display_name: "GSC Report Implementation"
+  short_description: "Apply verified website GSC report fixes"
+  brand_color: "#1177FF"
+  default_prompt: "Use $gsc-report-implementation to analyze the latest GSC report and implement valid website fixes."
+
+policy:
+  allow_implicit_invocation: true
